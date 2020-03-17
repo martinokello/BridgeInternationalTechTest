@@ -1,0 +1,27 @@
+Design Solution Explained.
+
+My Approach was to Hold all the given routes in a Dictionary, encapsulating the Dictionary in a RouteTable Class.
+
+1) I use a IRouteTable Interface to expose contracts for the calculator Class to use, while inject into the Journey Calculator class the instance of class implementing the 
+Interface. A call on the _routeTable methods from the Journey Calculator Class is therefore all one needs to use to execute the code.
+My intentions was to refactor code accordingly but like I said, 3 hours is very little when logic starts mangling your mind.
+
+2) I would have used Dependency Injection, but time was of the essence, as I had to bug fix my code. IoC containers like Unity or AutoFac could be used.
+
+3) Unit tests, I wrote in bulk at once and got caught up debugging the code base, as each test passed or failed. Normally I would write the Tests in tandem with the Code, 
+and refactor. But timne was of the Essence.
+
+4) My implentation is:
+
+A route Table that holds all possible hop routes e.g. Dictionary<string,int> where key is AB and value is 3 for instance when moving a hop from
+ A to B with a distance of 3.
+
+I then  wrote a recursive function which gives me a separate dictionary with detailed hops and journey times for any given trip. 
+Other functions make use of this same function and other extensions using linq to calculate values accordingly.
+
+Also chose to use a StringBuilder that builds the number of Routes recursively, terminating all possible routes with a characher colon at the same time separating every 
+route hop by semicolon. This I then used to populate a separate Dictionary of Dictionary<string,int> (Full hops as Key against distance accumulated as value)
+
+I am sure this implementation should work, but I don't know why the tests which I got caught up trying to debug are actually failing.
+
+I simply run out of time.
