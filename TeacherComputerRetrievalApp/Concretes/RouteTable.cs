@@ -78,10 +78,10 @@ namespace TeacherComputerRetrievalApp.Concretes
             if (currentHop.EndsWith(endAcademy))
             {
                 routeFound = true;
-            }
-            if (routeFound && keyBuilder.ToString().AlreadyContainsOccurencesOf(currentHop, numberOfLoopsAllowed))
-            {
-                return;
+                if (routeFound && keyBuilder.ToString().AlreadyContainsOccurencesOf(currentHop, numberOfLoopsAllowed))
+                {
+                    return;
+                }
             }
 
             var nextHops = _routes.Where(k => k.Key.StartsWith(currentHop.Substring(1, 1))).ToList();
