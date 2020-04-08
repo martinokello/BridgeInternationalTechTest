@@ -22,6 +22,6 @@ Other functions make use of this same function and other extensions using linq t
 Also chose to use a StringBuilder that builds the number of Routes recursively, terminating all possible routes with a characher colon at the same time separating every 
 route hop by semicolon. This I then used to populate a separate Dictionary of Dictionary<string,int> (Full hops as Key against distance accumulated as value)
 
-I am sure this implementation should work, but I don't know why the tests which I got caught up trying to debug are actually failing.
+2 out of 8 tests are shown to fail, due to unclear spec definitions and therefore subject to interpretation.
 
-I simply run out of time.
+I simply run out of time, eventually.
